@@ -3,9 +3,9 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 
 export default function SearchBox({
   userInput,
-  handleChange,
-  handleClick,
-  handleKeyDown,
+  onHandleChange,
+  onHandleClick,
+  onHandleKeyDown,
 }) {
   // Component for username input and search button
   return (
@@ -14,11 +14,11 @@ export default function SearchBox({
         <input
           type="text"
           value={userInput}
-          onChange={handleChange}
+          onChange={onHandleChange}
           placeholder="Enter github username"
-          onKeyDown={handleKeyDown}
+          onKeyDown={onHandleKeyDown}
         />
-        <button onClick={handleClick}>
+        <button onClick={onHandleClick}>
           <FaMagnifyingGlass className="magniglass" />
         </button>
       </div>

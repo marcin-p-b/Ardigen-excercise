@@ -10,31 +10,32 @@ export default function Details({ data }) {
     setShowDetail(!showDetail);
   };
 
+  const formatdata = (data) =>
+    `${data.slice().split("T")[0]} ${data.slice().split("T")[1].slice(0, -1)}`;
+
   return (
     <div className="detail-container">
       {showDetail ? (
-        <div>
+        <>
           <ul>
             <li>
               {/* Format date and time */}
-              Created: {data.created_at.slice().split("T")[0]}{" "}
-              {data.created_at.slice().split("T")[1].slice(0, -1)}
+              Created: {formatdata(data.created_at)}
             </li>
             <li>
               {/* Format date and time */}
-              Last update: {data.pushed_at.slice().split("T")[0]}{" "}
-              {data.pushed_at.slice().split("T")[1].slice(0, -1)}
+              Last update: {formatdata(data.pushed_at)}
             </li>
-            {data.language !== null ? <li>Language: {data.language}</li> : null}
-            {data.description !== null ? (
+            {data.language !== null && <li>Language: {data.language}</li>}
+            {data.description !== null && (
               <li>Description: {data.description}</li>
-            ) : null}
+            )}
           </ul>
           {/* Expand / Collapse mechanics */}
           <div className="expand" onClick={handleExpand}>
             <MdOutlineExpandLess className="expand-icon" />
           </div>
-        </div>
+        </>
       ) : (
         <div className="expand" onClick={handleExpand}>
           <MdOutlineExpandMore className="expand-icon" />
