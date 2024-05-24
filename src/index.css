@@ -125,6 +125,7 @@ hr {
   border-radius: 10px;
   max-height: 30px;
   vertical-align: middle;
+  min-width: 31.5px;
 }
 
 .repo-follow-info div p {
@@ -192,5 +193,9 @@ label {
   body {
     display: flex;
     justify-content: center;
+  }
+
+  .repo-follow-info div {
+    min-width: 21.5px;
   }
 }
